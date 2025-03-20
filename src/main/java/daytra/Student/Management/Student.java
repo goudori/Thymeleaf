@@ -1,27 +1,25 @@
 package daytra.Student.Management;
 
+
+
+import lombok.Getter;
+import lombok.Setter;
+
 /**
- * Student.javaは、「学生の名前」と「年齢」の情報を格納する型
+ * Student.javaは、学生情報を格納している型
  */
+@Getter
+@Setter
 public class Student {
 
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public int getAge() {
-    return age;
-  }
-
-  public void setAge(int age) {
-    this.age = age;
-  }
-
   private String name;
-
+  private String furigana;
+  private String nickName;
+  private String email;
+  private String address;
+  private String sex;
   private int age;
+  private int id;
+
 }
+
