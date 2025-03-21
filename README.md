@@ -25,6 +25,16 @@
 
 ### 1.Windowsの場合は、「Shift + F10」で実行して下さい。
 
+
+
+### 2.Macの場合は、「Control + R 」で実行して下さい。
+
+
+
+
+
+
+
 ![スクリーンショット 2025-03-01 221851](https://github.com/user-attachments/assets/23937fbe-a96e-45e2-bbc7-bb05a0df9776)
 
 
@@ -34,7 +44,7 @@
 
 
 ##  ⌘コマンド
-### 1.全ての学生情報の検索するコマンド(以下の画像)
+### 1.全ての学生情報の検索するコマンド(curl http://localhost:8080/studentListSearch)
 
 
 
@@ -53,7 +63,7 @@
 
 
 
-### 2.全てのコース情報を検索する。
+### 2.全てのコース情報を検索するコマンド(curl http://localhost:8080/studentCourseListSearch)
 
 
 
