@@ -1,5 +1,4 @@
-package daytra.Student.Management;
-
+package Student.Management.data;
 
 
 import lombok.Getter;

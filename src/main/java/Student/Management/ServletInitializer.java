@@ -1,4 +1,4 @@
-package daytra.Student.Management;
+package Student.Management;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
