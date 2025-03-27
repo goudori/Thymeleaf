@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Controllerから呼び出されるサービスクラス
+ * 業務アプリや業務サービスを作る為のルールを作るクラス
  */
 @Service
 public class StudentService {

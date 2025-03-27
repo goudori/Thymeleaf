@@ -35,5 +35,21 @@ public interface StudentRepository {
       """)
   List<Student> search();
 
+  /**
+   * 20歳以上の学生だけを検索する
+   */
+  @Select("""
+      SELECT
+         full_name AS name,
+         furigana,
+         nick_name AS nickName,
+         email,
+         address,
+         sex,
+         age,
+         id　
+         FROM students
+         WHERE age >= 20""")
+  List<Student> searchByAge();
 
 }
