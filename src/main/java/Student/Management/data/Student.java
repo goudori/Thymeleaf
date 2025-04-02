@@ -17,8 +17,11 @@ public class Student {
   private String email;
   private String address;
   private String sex;
+  private String remark; //備考
   private int age;
   private int id;
+  private boolean isDeleted; //論理削除
+
 
 }
 

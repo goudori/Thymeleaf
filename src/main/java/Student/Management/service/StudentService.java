@@ -45,6 +45,14 @@ public class StudentService {
     return repository.searchByAge();
   }
 
+
+  /**
+   * @return 全学生の備考情報を検索する
+   */
+  public List<Student> searchRemark() {
+    return repository.searchRemark();
+  }
+
   /**
    * @return 全学生のコース情報を検索する
    */

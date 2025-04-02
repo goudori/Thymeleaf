@@ -65,4 +65,7 @@ public interface StudentCourseRepository {
   // プレースホルダー
   List<StudentCourse> searchJavaCourse(@Param("courseName") String courseName);
 
+
+
+
 }

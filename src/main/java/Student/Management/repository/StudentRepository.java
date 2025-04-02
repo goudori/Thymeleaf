@@ -29,8 +29,10 @@ public interface StudentRepository {
           email,
           address,
           sex,
+          remark,
           age,
-          id
+          id,
+          isDeleted
         FROM students
       """)
   List<Student> search();
@@ -46,10 +48,33 @@ public interface StudentRepository {
          email,
          address,
          sex,
+         remark,
          age,
-         id　
+         id,
+         isDeleted,
          FROM students
          WHERE age >= 20""")
   List<Student> searchByAge();
+
+
+  /**
+   * @return 学生の備考を検索する
+   */
+  @Select("""
+      SELECT
+        full_name AS name,
+        furigana,
+        nick_name AS nickName,
+        email,
+        address,
+        sex,
+        remark,
+        age,
+        id,
+        isDeleted
+      FROM students
+      WHERE remark IS NOT NULL
+      """)
+  List<Student> searchRemark();
 
 }

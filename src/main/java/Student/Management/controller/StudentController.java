@@ -1,10 +1,14 @@
 package Student.Management.controller;
 
 
+import Student.Management.controller.converter.StudentConverter;
 import Student.Management.data.Student;
 import Student.Management.data.StudentCourse;
+import Student.Management.domain.StudentDtail;
 import Student.Management.service.StudentService;
+import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,22 +28,35 @@ public class StudentController {
 
   private StudentService service;
 
-  public StudentController(StudentService service) {
+  private StudentConverter converter;
+
+  @Autowired
+  public StudentController(StudentService service, StudentConverter converter) {
     this.service = service;
+    this.converter = converter;
   }
 
   // GetMappingで、全学生の情報を検索する。
   @GetMapping("/studentListSearch")
-  public List<Student> getStudentList() {
+  public List<StudentDtail> getStudentList() {
+    List<Student> students = service.searchStudentList();
+    List<StudentCourse> studentCourses = service.searchStudentCourseList();
 
-    return service.searchStudentList();
-
+    return converter.convertStudentDetails(students, studentCourses);
   }
+
 
   // GetMappingで、20歳以上の学生の情報だけ検索する。
   @GetMapping("studentListSearchByAge")
   public List<Student> getStudentListByAge() {
     return service.searchStudentListByAge();
+  }
+
+
+  // GetMappingで、全学生の備考だけ検索する。
+  @GetMapping("studentRemarkSearch")
+  public List<Student> getStudentRemark() {
+    return service.searchRemark();
   }
 
   // GetMappingで、全学生のコース情報を検索する。
