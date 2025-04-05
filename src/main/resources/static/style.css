@@ -1,0 +1,32 @@
+/* style.css */
+
+
+.header-title-student {
+  text-align: center;
+  font-size:36px;
+  color:#008b8b; 　/* 文字にdarkcyanの色を付ける*/
+}
+
+.header-title-studentCourse {
+  text-align: center;
+  font-size:36px;
+  color:#8a2be2; 　/* 文字にbluevioletの色を付ける*/
+  margin-top: 82px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid #000000;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}

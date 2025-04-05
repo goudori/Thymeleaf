@@ -28,7 +28,11 @@ dependencies {
     // appache commons langを追加
     implementation 'org.apache.commons:commons-lang3:3.17.0'
 
+    // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Thymeleaf
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     // Lombokの設定
     compileOnly 'org.projectlombok:lombok'

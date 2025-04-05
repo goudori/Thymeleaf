@@ -9,11 +9,13 @@ import Student.Management.service.StudentService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * ①/studentListSearchは、全学生の情報を検索する。
+ * ①/studentListSearchは、全学生の情報を検索する。(http://localhost:8080/studentListSearch)
  * <p>
  * ②/studentCourseListSearchは、全学生のコース情報を検索する。
  * <p>
@@ -23,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * ⑤/javaCourseListSearchは、Javaコースの情報のみを検索する。
  */
-@RestController
+@Controller
 public class StudentController {
 
   private StudentService service;
@@ -38,11 +40,15 @@ public class StudentController {
 
   // GetMappingで、全学生の情報を検索する。
   @GetMapping("/studentListSearch")
-  public List<StudentDtail> getStudentList() {
+  public String getStudentList(Model model) {
     List<Student> students = service.searchStudentList();
     List<StudentCourse> studentCourses = service.searchStudentCourseList();
 
-    return converter.convertStudentDetails(students, studentCourses);
+    model.addAttribute("studentList", converter.convertStudentDetails(students,
+        studentCourses)); // 受講生情報をHTMLに使えるようにする事。
+
+    model.addAttribute("studentCourses", studentCourses); // コース情報をHTMLに使えるようにする事。
+    return "studentList"; // studentList.htmlに返す
   }
 
 
