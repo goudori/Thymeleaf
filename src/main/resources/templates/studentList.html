@@ -3,70 +3,82 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- CSSファイルの読み込み -->
   <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
   <title>受講生一覧</title>
 </head>
 <body>
 <!-- 受講生情報 -->
-<h1 class="header-title-student">受講生一覧</h1>
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>名前</th>
-    <th>ふりがな</th>
-    <th>ニックネーム</th>
-    <th>メールアドレス</th>
-    <th>住所</th>
-    <th>性別</th>
-    <th>備考</th>
-    <th>年齢</th>
-  </tr>
-  </thead>
+<div class="student-section">
+  <!-- 🔍 検索ボックス -->
+  <div class="search-box">
+    <input type="text" id="studentSearchBox" placeholder="検索キーワード"/>
+  </div>
+  <h1 class="header-title-student">受講生一覧</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>名前</th>
+      <th>ふりがな</th>
+      <th>ニックネーム</th>
+      <th>メールアドレス</th>
+      <th>住所</th>
+      <th>性別</th>
+      <th>備考</th>
+      <th>年齢</th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <tr th:each="studentDetail : ${studentList}" class="student">
-    <td th:text="${studentDetail.student.id}">1</td>
-    <td th:text="${studentDetail.student.name}">Tanaka Tarou</td>
-    <td th:text="${studentDetail.student.furigana}">たなかたろう</td>
-    <td th:text="${studentDetail.student.nickName}">タタロウ</td>
-    <td th:text="${studentDetail.student.email}">tana@example.com</td>
-    <td th:text="${studentDetail.student.address}">熊本県</td>
-    <td th:text="${studentDetail.student.sex}">男性</td>
-    <td th:text="${studentDetail.student.remark}">大学生</td>
-    <td th:text="${studentDetail.student.age}">20</td>
-  </tr>
-  </tbody>
-</table>
+    <tbody>
+    <tr th:each="studentDetail : ${studentList}" class="student">
+      <td th:text="${studentDetail.student.id}">1</td>
+      <td th:text="${studentDetail.student.name}">Tanaka Tarou</td>
+      <td th:text="${studentDetail.student.furigana}">たなかたろう</td>
+      <td th:text="${studentDetail.student.nickName}">タタロウ</td>
+      <td th:text="${studentDetail.student.email}">tana@example.com</td>
+      <td th:text="${studentDetail.student.address}">熊本県</td>
+      <td th:text="${studentDetail.student.sex}">男性</td>
+      <td th:text="${studentDetail.student.remark}">大学生</td>
+      <td th:text="${studentDetail.student.age}">20</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 <!-- 受講生コース情報 -->
-<h1 class="header-title-studentCourse">受講生コース一覧</h1>
-<table>
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>受講生id</th>
-    <th>コース名</th>
-    <th>コースの特徴</th>
-    <th>コース開始日</th>
-    <th>コース終了日</th>
+<div class="student-course-section">
+  <h1 class="header-title-studentCourse">受講生コース一覧</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>受講生id</th>
+      <th>コース名</th>
+      <th>コースの特徴</th>
+      <th>コース開始日</th>
+      <th>コース終了日</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${studentCourses}" class="student-course">
+      <td th:text="${course.id}">1</td>
+      <td th:text="${course.studentId}">1</td>
+      <td th:text="${course.courseName}">Javaコース</td>
+      <td th:text="${course.courseFeature}">
+        WebアプリやWebサービスの開発するまでの実務レベルを身に付ける事ができる
+      </td>
+      <td th:text="${course.courseStartDate}">2024-01-01</td>
+      <td th:text="${course.courseEndDate}">2024-03-24</td>
+    </tr>
+  </table>
   </tr>
-  </thead>
-  <tbody>
-  <tr th:each="course : ${studentCourses}" class="student-course">
-    <td th:text="${course.id}">1</td>
-    <td th:text="${course.studentId}">1</td>
-    <td th:text="${course.courseName}">Javaコース</td>
-    <td th:text="${course.courseFeature}">
-      WebアプリやWebサービスの開発するまでの実務レベルを身に付ける事ができる
-    </td>
-    <td th:text="${course.courseStartDate}">2024-01-01</td>
-    <td th:text="${course.courseEndDate}">2024-03-24</td>
-  </tr>
-</table>
-</tr>
 
-</tbody>
-</table>
+  </tbody>
+  </table>
+</div>
+<!-- JavaScriptファイルの読み込み -->
+<script type="text/javascript" th:src="@{/script.js}"></script>
+
 </body>
 </html>

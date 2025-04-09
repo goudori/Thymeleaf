@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * ①/studentListSearchは、全学生の情報を検索する。(http://localhost:8080/studentListSearch)
+ * ①/studentListSearchは、全ての学生の情報とコース情報を検索する。(http://localhost:8080/studentListSearch)
  * <p>
  * ②/studentCourseListSearchは、全学生のコース情報を検索する。
  * <p>
